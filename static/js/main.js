@@ -22,38 +22,41 @@
   function initParticles() {
     if (typeof particlesJS === 'undefined') return;
 
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const count = isMobile ? 45 : 90;
+
     particlesJS('particles-js', {
       particles: {
-        number: { value: 70, density: { enable: true, value_area: 900 } },
-        color: { value: ['#00d4ff', '#a855f7', '#ec4899'] },
+        number: { value: count, density: { enable: true, value_area: 800 } },
+        color: { value: ['#ec4899', '#db2777', '#7c3aed', '#0284c7', '#f97316', '#eab308'] },
         shape: { type: 'circle' },
-        opacity: { value: 0.4, random: true },
+        opacity: { value: 0.45, random: true },
         size: { value: 3, random: true },
         line_linked: {
           enable: true,
-          distance: 140,
-          color: '#00d4ff',
+          distance: 130,
+          color: '#ec4899',
           opacity: 0.12,
           width: 1,
         },
         move: {
           enable: true,
-          speed: 1.2,
+          speed: 1.8,
           direction: 'none',
           random: true,
           out_mode: 'out',
         },
       },
       interactivity: {
-        detect_on: 'canvas',
+        detect_on: 'window',
         events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
+          onhover: { enable: !isMobile, mode: 'repulse' },
+          onclick: { enable: true, mode: 'bubble' },
           resize: true,
         },
         modes: {
-          grab: { distance: 160, line_linked: { opacity: 0.35 } },
-          push: { particles_nb: 3 },
+          repulse: { distance: 140, duration: 0.4 },
+          bubble: { distance: 200, size: 6, duration: 2, opacity: 0.6 },
         },
       },
       retina_detect: true,
@@ -145,15 +148,39 @@
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
 
-        card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
       });
 
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
       });
+    });
+  }
+
+  function initHero3D() {
+    const card = document.getElementById('hero3dCard');
+    const wrap = document.querySelector('.hero-image-wrap');
+    if (!card || !wrap) return;
+
+    wrap.addEventListener('mousemove', (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotateY = x * 18;
+      const rotateX = y * -14;
+
+      card.style.animation = 'none';
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.03)`;
+      card.style.boxShadow = `${-rotateY * 1.5}px ${rotateX * 1.5 + 20}px 50px rgba(15, 23, 42, 0.18)`;
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      card.style.animation = '';
+      card.style.transform = '';
+      card.style.boxShadow = '';
     });
   }
 
@@ -479,6 +506,7 @@
     initNavbar();
     initReveal();
     init3DTilt();
+    initHero3D();
     initLightbox();
     initGallery();
     initCertificates();

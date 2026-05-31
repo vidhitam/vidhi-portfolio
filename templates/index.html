@@ -18,10 +18,22 @@
   <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
 </head>
 <body>
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
   <div id="particles-js"></div>
-  <div class="gradient-orb orb-1"></div>
-  <div class="gradient-orb orb-2"></div>
-  <div class="gradient-orb orb-3"></div>
+  <div class="cursor-spotlight" id="cursorSpotlight" aria-hidden="true"></div>
+  <div class="gradient-orb orb-1" id="orb1"></div>
+  <div class="gradient-orb orb-2" id="orb2"></div>
+  <div class="gradient-orb orb-3" id="orb3"></div>
+
+  <!-- Dynamic heart cursor -->
+  <div class="heart-cursor" id="heartCursor" aria-hidden="true">
+    <div class="heart-cursor-ring"></div>
+    <div class="heart-cursor-glow"></div>
+    <div class="heart-cursor-inner"></div>
+  </div>
+  <div class="heart-trail-layer" id="heartTrailLayer" aria-hidden="true"></div>
+  <div class="float-icons-layer" id="floatIconsLayer" aria-hidden="true"></div>
+  <div class="touch-ripple-layer" id="touchRippleLayer" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="navbar" id="navbar">
@@ -47,7 +59,7 @@
 
   <main>
     <!-- Hero -->
-    <section id="hero" class="section hero">
+    <section id="hero" class="section hero" data-float-group="general">
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <p class="hero-greeting">Hello, I'm</p>
@@ -72,8 +84,8 @@
         </div>
         <div class="hero-image-wrap reveal delay-1">
           <div class="hero-image-glow"></div>
-          <div class="hero-image-frame glass-card">
-            <img src="{{ url_for('static', filename='images/profile/profile.jpg') }}" alt="Vidhitam Chakole" class="hero-image" id="profilePhoto" onerror="this.src='{{ url_for('static', filename='images/profile/placeholder.svg') }}'">
+          <div class="hero-image-frame glass-card hero-3d-card" id="hero3dCard">
+            <img src="{{ url_for('static', filename='images/profile/vidhitam_chakole_hero.jpg') }}" alt="Vidhitam Chakole — SIT Nagpur" class="hero-image" id="profilePhoto" onerror="this.src='{{ url_for('static', filename='images/profile/placeholder.svg') }}'">
           </div>
           <div class="floating-badge badge-1 glass-card"><i class="fas fa-code"></i> Developer</div>
           <div class="floating-badge badge-2 glass-card"><i class="fas fa-brain"></i> AI Enthusiast</div>
@@ -86,7 +98,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section" data-float-group="general">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Get to know me</span>
@@ -125,7 +137,7 @@
     </section>
 
     <!-- Education -->
-    <section id="education" class="section section-alt">
+    <section id="education" class="section section-alt" data-float-group="education">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Academic Journey</span>
@@ -150,7 +162,7 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section">
+    <section id="skills" class="section" data-float-group="technical">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">What I work with</span>
@@ -199,7 +211,7 @@
     </section>
 
     <!-- Tools -->
-    <section id="tools" class="section section-alt">
+    <section id="tools" class="section section-alt" data-float-group="technical">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">My toolkit</span>
@@ -224,7 +236,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="section">
+    <section id="projects" class="section" data-float-group="technical">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">What I've built</span>
@@ -276,7 +288,7 @@
     </section>
 
     <!-- Experience Timeline -->
-    <section id="experience" class="section section-alt">
+    <section id="experience" class="section section-alt" data-float-group="leadership">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">My journey</span>
@@ -342,7 +354,7 @@
     </section>
 
     <!-- Achievements (categories without counters) -->
-    <section id="achievements" class="section">
+    <section id="achievements" class="section" data-float-group="leadership">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Highlights</span>
@@ -360,7 +372,7 @@
     </section>
 
     <!-- Beyond Code — Networking & Community -->
-    <section id="beyond-code" class="section section-alt">
+    <section id="beyond-code" class="section section-alt" data-float-group="ngo">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Life beyond coding</span>
@@ -428,7 +440,7 @@
     </section>
 
     <!-- Vintage Film Gallery -->
-    <section id="gallery" class="section">
+    <section id="gallery" class="section" data-float-group="media">
       <div class="container gallery-container">
         <div class="section-header reveal">
           <span class="section-tag">Captured moments</span>
@@ -448,7 +460,7 @@
     </section>
 
     <!-- Certifications -->
-    <section id="certifications" class="section section-alt">
+    <section id="certifications" class="section section-alt" data-float-group="education">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Credentials</span>
@@ -482,7 +494,7 @@
     </section>
 
     <!-- GitHub -->
-    <section id="github" class="section">
+    <section id="github" class="section" data-float-group="technical">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Open source</span>
@@ -503,7 +515,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section section-alt">
+    <section id="contact" class="section section-alt" data-float-group="general">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Let's connect</span>
@@ -559,6 +571,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="{{ url_for('static', filename='js/effects.js') }}"></script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
