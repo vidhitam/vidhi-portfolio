@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vidhitam Chakole — Computer Science Engineering student at SIT Nagpur. Software Developer, AI Enthusiast, Student Leader & Community Builder.">
+  <meta name="keywords" content="Vidhitam Chakole, Portfolio, Software Developer, AI, SIT Nagpur, Computer Science">
+  <meta name="author" content="Vidhitam Chakole">
+  <meta property="og:title" content="Vidhitam Chakole | Portfolio">
+  <meta property="og:description" content="Software Developer · AI Enthusiast · Student Leader · Future Technology Professional">
+  <meta property="og:type" content="website">
+  <title>Vidhitam Chakole | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-container">
+      <a href="#hero" class="nav-logo">VC<span class="accent">.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#beyond-code">Community</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#certifications">Certs</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Vidhitam <span class="gradient-text">Chakole</span></h1>
+          <p class="hero-title">Computer Science Engineering Student | Software Developer | Tech Enthusiast</p>
+          <p class="hero-tagline">Focus on <strong>who you want to become</strong> rather than just the outcome you want to achieve.</p>
+          <p class="hero-typing">I'm a <span id="typedText"></span><span class="cursor-blink">|</span></p>
+          <div class="hero-actions">
+            <a href="{{ url_for('download_resume') }}" class="btn btn-primary" id="resumeBtn">
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+          <div class="hero-social">
+            <a href="https://www.linkedin.com/in/vidhitam-chakole-855172380" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/vidhitam" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/vidhitam.c?igsh=MWtnYXludjV0bHFyeQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:chakolevidhitam@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="hero-image-wrap reveal delay-1">
+          <div class="hero-image-glow"></div>
+          <div class="hero-image-frame glass-card">
+            <img src="{{ url_for('static', filename='images/profile/profile.jpg') }}" alt="Vidhitam Chakole" class="hero-image" id="profilePhoto" onerror="this.src='{{ url_for('static', filename='images/profile/placeholder.svg') }}'">
+          </div>
+          <div class="floating-badge badge-1 glass-card"><i class="fas fa-code"></i> Developer</div>
+          <div class="floating-badge badge-2 glass-card"><i class="fas fa-brain"></i> AI Enthusiast</div>
+          <div class="floating-badge badge-3 glass-card"><i class="fas fa-users"></i> Leader</div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get to know me</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text glass-card reveal">
+            <p>I am a Computer Science Engineering student at <strong>Symbiosis Institute of Technology (SIT), Nagpur</strong>, with a strong passion for software development, artificial intelligence, and emerging technologies.</p>
+            <p>I enjoy building practical projects, exploring modern AI tools, learning new technologies, and continuously improving my technical and leadership abilities.</p>
+            <p>Alongside technology, I actively contribute to social initiatives, student leadership programs, and community-driven projects. My goal is to combine technical expertise with leadership and innovation to create meaningful impact.</p>
+          </div>
+          <div class="about-highlights reveal delay-1">
+            <div class="highlight-card glass-card hover-3d">
+              <i class="fas fa-laptop-code"></i>
+              <h3>Software Developer</h3>
+              <p>Building practical, AI-powered applications</p>
+            </div>
+            <div class="highlight-card glass-card hover-3d">
+              <i class="fas fa-robot"></i>
+              <h3>AI Enthusiast</h3>
+              <p>Exploring generative AI & automation</p>
+            </div>
+            <div class="highlight-card glass-card hover-3d">
+              <i class="fas fa-handshake"></i>
+              <h3>Community Leader</h3>
+              <p>Driving social impact & student engagement</p>
+            </div>
+            <div class="highlight-card glass-card hover-3d">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>Lifelong Learner</h3>
+              <p>Always growing, always building</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Academic Journey</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-card glass-card reveal hover-3d">
+          <div class="edu-icon"><i class="fas fa-university"></i></div>
+          <div class="edu-content">
+            <h3>Symbiosis Institute of Technology (SIT), Nagpur</h3>
+            <p class="edu-degree">Bachelor of Technology (B.Tech) — Computer Science Engineering</p>
+            <span class="edu-period"><i class="far fa-calendar"></i> 2025 – 2029</span>
+            <div class="edu-tags">
+              <span>Programming</span>
+              <span>Database Management</span>
+              <span>Web Development</span>
+              <span>Artificial Intelligence</span>
+              <span>Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I work with</span>
+          <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category glass-card reveal hover-3d">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Programming Languages</h3>
+            <ul class="skill-list">
+              <li>Python</li><li>C Programming</li><li>JavaScript</li><li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal hover-3d delay-1">
+            <div class="skill-icon"><i class="fas fa-globe"></i></div>
+            <h3>Web Development</h3>
+            <ul class="skill-list">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Flask</li><li>Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal hover-3d delay-2">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h3>Database</h3>
+            <ul class="skill-list">
+              <li>SQL</li><li>Database Management Systems</li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal hover-3d">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h3>AI & Emerging Technologies</h3>
+            <ul class="skill-list">
+              <li>Generative AI</li><li>Prompt Engineering</li><li>AI Agents</li>
+              <li>Speech Recognition Systems</li><li>AI-Powered Applications</li><li>Automation Workflows</li>
+            </ul>
+          </div>
+          <div class="skill-category glass-card reveal hover-3d delay-1">
+            <div class="skill-icon"><i class="fas fa-users"></i></div>
+            <h3>Soft Skills</h3>
+            <ul class="skill-list">
+              <li>Leadership</li><li>Public Speaking</li><li>Team Management</li>
+              <li>Event Coordination</li><li>Networking</li><li>Communication</li><li>Problem Solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">My toolkit</span>
+          <h2 class="section-title">Tools & <span class="gradient-text">Platforms</span></h2>
+        </div>
+        <div class="tools-grid">
+          <div class="tools-group glass-card reveal">
+            <h3><i class="fas fa-wrench"></i> Development Tools</h3>
+            <div class="tool-chips">
+              <span>Visual Studio Code</span><span>Git</span><span>GitHub</span><span>Canva</span><span>Microsoft Office</span>
+            </div>
+          </div>
+          <div class="tools-group glass-card reveal delay-1">
+            <h3><i class="fas fa-robot"></i> AI Tools</h3>
+            <div class="tool-chips">
+              <span>ChatGPT</span><span>Claude</span><span>Cursor AI</span><span>Gemini AI</span>
+              <span>Gamma AI</span><span>GitHub Copilot</span><span>Perplexity AI</span><span>Blackbox AI</span><span>Lovable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I've built</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card glass-card reveal hover-3d">
+            <div class="project-icon"><i class="fas fa-image"></i></div>
+            <h3>AI Image Generator</h3>
+            <p>An AI-powered application capable of generating high-quality images from natural language prompts.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Flask</span><span>AI APIs</span>
+            </div>
+            <ul class="project-features">
+              <li>Text-to-image generation</li>
+              <li>User-friendly interface</li>
+              <li>Fast image generation</li>
+              <li>AI-powered creativity</li>
+            </ul>
+          </article>
+          <article class="project-card glass-card reveal hover-3d delay-1">
+            <div class="project-icon"><i class="fas fa-microphone"></i></div>
+            <h3>Speech-to-Text Converter</h3>
+            <p>A speech recognition system that converts spoken language into accurate text output in real-time.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Speech Recognition APIs</span><span>Flask</span>
+            </div>
+            <ul class="project-features">
+              <li>Real-time voice recognition</li>
+              <li>Accurate transcription</li>
+              <li>User-friendly design</li>
+            </ul>
+          </article>
+          <article class="project-card glass-card reveal hover-3d delay-2">
+            <div class="project-icon"><i class="fas fa-laptop"></i></div>
+            <h3>Personal Portfolio Website</h3>
+            <p>A premium responsive portfolio showcasing projects, skills, leadership experience, certifications, and social impact.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span>
+            </div>
+            <ul class="project-features">
+              <li>Glassmorphism UI</li>
+              <li>Responsive design</li>
+              <li>Interactive animations</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">My journey</span>
+          <h2 class="section-title">Experience <span class="gradient-text">Timeline</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card hover-3d">
+              <span class="timeline-year">2025</span>
+              <h3>Started B.Tech CSE at SIT Nagpur</h3>
+              <p>Began Computer Science Engineering journey at Symbiosis Institute of Technology, Nagpur.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card hover-3d">
+              <span class="timeline-year">2025 – 2026</span>
+              <h3>Vice Secretary — The New Era Socials</h3>
+              <ul>
+                <li>Student engagement</li>
+                <li>Event planning</li>
+                <li>Leadership initiatives</li>
+                <li>Team coordination</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card hover-3d">
+              <span class="timeline-year">2026</span>
+              <h3>AI Projects Development</h3>
+              <p>Developed AI Image Generator and Speech-to-Text Converter applications.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card hover-3d">
+              <span class="timeline-year">2026 – Present</span>
+              <h3>Volunteer Coordinator — Zanzaawat Sanstha</h3>
+              <ul>
+                <li>Managing volunteer teams</li>
+                <li>Community initiatives</li>
+                <li>Event organization</li>
+                <li>Social impact campaigns</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card hover-3d">
+              <span class="timeline-year">2026 – Present</span>
+              <h3>Volunteer — Make a Difference</h3>
+              <ul>
+                <li>Community outreach and social impact programs</li>
+                <li>Volunteer coordination and event support</li>
+                <li>NGO-driven initiatives for positive change</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements (categories without counters) -->
+    <section id="achievements" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Highlights</span>
+          <h2 class="section-title">Achievements & <span class="gradient-text">Impact</span></h2>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card glass-card reveal hover-3d"><i class="fas fa-code"></i><span>Technical Skills</span></div>
+          <div class="achievement-card glass-card reveal hover-3d delay-1"><i class="fas fa-project-diagram"></i><span>Projects Built</span></div>
+          <div class="achievement-card glass-card reveal hover-3d delay-2"><i class="fas fa-certificate"></i><span>Certifications Earned</span></div>
+          <div class="achievement-card glass-card reveal hover-3d"><i class="fas fa-crown"></i><span>Leadership Positions</span></div>
+          <div class="achievement-card glass-card reveal hover-3d delay-1"><i class="fas fa-heart"></i><span>Social Initiatives</span></div>
+          <div class="achievement-card glass-card reveal hover-3d delay-2"><i class="fas fa-calendar-check"></i><span>Events Organized</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beyond Code — Networking & Community -->
+    <section id="beyond-code" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Life beyond coding</span>
+          <h2 class="section-title">Networking & <span class="gradient-text">Community</span></h2>
+          <p class="section-subtitle">Building connections, leading initiatives, and creating impact through student life, NGOs, and social organizations.</p>
+        </div>
+        <div class="community-grid">
+          <article class="community-card glass-card reveal hover-3d">
+            <div class="community-icon nsui"><i class="fas fa-flag"></i></div>
+            <h3>National Student Union of India (NSUI)</h3>
+            <span class="community-role">Active Member</span>
+            <p>Engaged in student politics, leadership activities, and campus-level initiatives that connect peers and drive social awareness.</p>
+            <ul>
+              <li>Active student member & youth engagement</li>
+              <li>Leadership activities & public representation</li>
+              <li>Student networking & dialogue initiatives</li>
+              <li>Social awareness & community campaigns</li>
+            </ul>
+            <a href="#gallery" class="community-gallery-link" data-gallery-filter="nsui"><i class="fas fa-film"></i> View NSUI Photos</a>
+          </article>
+
+          <article class="community-card glass-card reveal hover-3d delay-1">
+            <div class="community-icon zanzaawat"><i class="fas fa-hands-helping"></i></div>
+            <h3>Zanzaawat Sanstha</h3>
+            <span class="community-role">Volunteer Coordinator</span>
+            <p>Leading volunteer teams and coordinating community-driven programs that bring people together for meaningful social impact.</p>
+            <ul>
+              <li>Managing volunteer teams & coordination</li>
+              <li>Community service & outreach programs</li>
+              <li>Social campaigns & event execution</li>
+              <li>On-ground social impact initiatives</li>
+            </ul>
+            <a href="#gallery" class="community-gallery-link" data-gallery-filter="zanzaawat"><i class="fas fa-film"></i> View Zanzaawat Photos</a>
+          </article>
+
+          <article class="community-card glass-card reveal hover-3d delay-2">
+            <div class="community-icon mad"><i class="fas fa-seedling"></i></div>
+            <h3>Make a Difference</h3>
+            <span class="community-role">NGO Volunteer</span>
+            <p>Contributing to NGO-led programs focused on community welfare, volunteer engagement, and creating positive change beyond the classroom.</p>
+            <ul>
+              <li>Community outreach & welfare programs</li>
+              <li>Volunteer support & team collaboration</li>
+              <li>Event planning & field activities</li>
+              <li>Social impact & awareness drives</li>
+            </ul>
+            <a href="#gallery" class="community-gallery-link" data-gallery-filter="make-a-difference"><i class="fas fa-film"></i> View Make a Difference Photos</a>
+          </article>
+
+          <article class="community-card glass-card reveal hover-3d">
+            <div class="community-icon newera"><i class="fas fa-star"></i></div>
+            <h3>The New Era Socials</h3>
+            <span class="community-role">Vice Secretary</span>
+            <p>Driving student networking, event culture, and leadership on campus — connecting people, ideas, and opportunities beyond academics.</p>
+            <ul>
+              <li>Event management & student networking</li>
+              <li>Leadership initiatives & team coordination</li>
+              <li>Campus engagement & social gatherings</li>
+              <li>Building collaborative student communities</li>
+            </ul>
+            <a href="#gallery" class="community-gallery-link" data-gallery-filter="new-era"><i class="fas fa-film"></i> View New Era Photos</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vintage Film Gallery -->
+    <section id="gallery" class="section">
+      <div class="container gallery-container">
+        <div class="section-header reveal">
+          <span class="section-tag">Captured moments</span>
+          <h2 class="section-title">Memory <span class="gradient-text">Reel</span></h2>
+          <p class="section-subtitle film-subtitle"><i class="fas fa-camera-retro"></i> Vintage film strip — hover to pause & enlarge</p>
+        </div>
+        <div class="gallery-filters reveal" id="galleryFilters"></div>
+        <div class="film-reel-wrap reveal" id="filmReelWrap" hidden>
+          <div class="film-camera-label"><span class="film-rec-dot"></span> REC · MEMORY REEL</div>
+          <div class="film-viewport" id="filmViewport">
+            <div class="film-track" id="filmTrack"></div>
+          </div>
+          <div class="film-grain"></div>
+        </div>
+        <p class="gallery-empty" id="galleryEmpty" hidden>No photos in this album yet.</p>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Credentials</span>
+          <h2 class="section-title">Certifications</h2>
+        </div>
+        <div class="certs-grid" id="certsGrid">
+          {% if certificates %}
+            {% for cert in certificates %}
+            <div class="cert-card glass-card reveal visible hover-3d{% if loop.index0 % 3 == 1 %} delay-1{% elif loop.index0 % 3 == 2 %} delay-2{% endif %}"
+                 data-preview="{{ url_for('static', filename='certificates/' + cert.filename) }}"
+                 data-title="{{ cert.title }}">
+              <div class="cert-thumb">
+                {% if cert.is_image %}
+                <img src="{{ url_for('static', filename='certificates/' + cert.filename) }}" alt="{{ cert.title }}" loading="lazy">
+                {% else %}
+                <div class="cert-pdf-icon"><i class="fas fa-file-pdf"></i></div>
+                {% endif %}
+              </div>
+              <h3>{{ cert.title }}</h3>
+              <div class="cert-actions">
+                <button type="button" class="btn btn-sm btn-outline cert-preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                <a href="{{ url_for('download_certificate', filename=cert.filename) }}" class="btn btn-sm btn-primary"><i class="fas fa-download"></i> Download</a>
+              </div>
+            </div>
+            {% endfor %}
+          {% else %}
+            <p class="certs-empty">No certificates found yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub -->
+    <section id="github" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Open source</span>
+          <h2 class="section-title">GitHub <span class="gradient-text">Activity</span></h2>
+        </div>
+        <div class="github-section">
+          <div class="github-profile glass-card reveal" id="githubProfile">
+            <div class="github-loading"><i class="fas fa-spinner fa-spin"></i> Loading GitHub data...</div>
+          </div>
+          <div class="github-contrib glass-card reveal delay-1">
+            <h3><i class="fab fa-github"></i> Contribution Activity</h3>
+            <img id="githubGraph" src="https://ghchart.rshah.org/vidhitam" alt="GitHub contribution graph for vidhitam" loading="lazy">
+            <p class="github-graph-note">Live contribution graph from GitHub</p>
+          </div>
+          <div class="github-repos reveal delay-2" id="githubRepos"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Let's connect</span>
+          <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        </div>
+        <div class="contact-info reveal contact-info-centered">
+          <p class="contact-intro">Open to internships, collaborations, hackathons, and leadership opportunities. Let's build something meaningful together.</p>
+          <div class="contact-cards">
+            <a href="https://www.linkedin.com/in/vidhitam-chakole-855172380" target="_blank" rel="noopener noreferrer" class="contact-card glass-card hover-3d">
+              <i class="fab fa-linkedin-in"></i>
+              <div><strong>LinkedIn</strong><span>vidhitam-chakole</span></div>
+            </a>
+            <a href="https://github.com/vidhitam" target="_blank" rel="noopener noreferrer" class="contact-card glass-card hover-3d">
+              <i class="fab fa-github"></i>
+              <div><strong>GitHub</strong><span>@vidhitam</span></div>
+            </a>
+            <a href="https://www.instagram.com/vidhitam.c?igsh=MWtnYXludjV0bHFyeQ==" target="_blank" rel="noopener noreferrer" class="contact-card glass-card hover-3d">
+              <i class="fab fa-instagram"></i>
+              <div><strong>Instagram</strong><span>@vidhitam.c</span></div>
+            </a>
+            <a href="mailto:chakolevidhitam@gmail.com" class="contact-card glass-card hover-3d">
+              <i class="fas fa-envelope"></i>
+              <div><strong>Email</strong><span>chakolevidhitam@gmail.com</span></div>
+            </a>
+            <a href="tel:+917720803992" class="contact-card glass-card hover-3d">
+              <i class="fas fa-phone"></i>
+              <div><strong>Phone</strong><span>+91 7720803992</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Vidhitam Chakole. Built with passion & purpose.</p>
+      <div class="footer-social">
+        <a href="https://github.com/vidhitam" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vidhitam-chakole-855172380" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/vidhitam.c?igsh=MWtnYXludjV0bHFyeQ==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <img src="" alt="Gallery preview" id="lightboxImg">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
