@@ -1,9 +1,17 @@
 import os
 import re
 from flask import Flask, jsonify, render_template, send_from_directory, abort, url_for
+from flask import send_from_directory
 
 app = Flask(__name__)
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 GITHUB_USERNAME = "vidhitam"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
